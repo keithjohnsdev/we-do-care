@@ -864,10 +864,11 @@ section {
   }
   .navbar .nav-right .navs .nav {
     font-size: 14px;
-    margin-right: 20px;
+    margin-right: 18px;
   }
   .navbar .nav-right .navs .outline-btn {
     font-size: 14px;
     padding-top: 7px;
+    margin-right: 10px;
   }
 }/*# sourceMappingURL=App.css.map */
