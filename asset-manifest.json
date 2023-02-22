@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/we-do-care/static/css/main.ff4e66dc.css",
+    "main.css": "/we-do-care/static/css/main.f4410628.css",
     "main.js": "/we-do-care/static/js/main.eb3245fe.js",
     "static/js/787.e177044f.chunk.js": "/we-do-care/static/js/787.e177044f.chunk.js",
     "static/media/membership-bg-img-large.png": "/we-do-care/static/media/membership-bg-img-large.3a8f89173a6d5eb8f1b5.png",
@@ -22,12 +22,12 @@
     "static/media/pharmacy.png": "/we-do-care/static/media/pharmacy.b4486be5f6d84777c81c.png",
     "static/media/labs.png": "/we-do-care/static/media/labs.c4bbd9709fbcdf64bd4f.png",
     "index.html": "/we-do-care/index.html",
-    "main.ff4e66dc.css.map": "/we-do-care/static/css/main.ff4e66dc.css.map",
+    "main.f4410628.css.map": "/we-do-care/static/css/main.f4410628.css.map",
     "main.eb3245fe.js.map": "/we-do-care/static/js/main.eb3245fe.js.map",
     "787.e177044f.chunk.js.map": "/we-do-care/static/js/787.e177044f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff4e66dc.css",
+    "static/css/main.f4410628.css",
     "static/js/main.eb3245fe.js"
   ]
 }
