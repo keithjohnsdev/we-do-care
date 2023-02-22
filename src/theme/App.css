@@ -720,7 +720,7 @@ section {
 }
 @media screen and (min-width: 1025px) {
   .hero .hero-text {
-    padding: 55px 50px 0 20px;
+    padding: 35px 50px 0 20px;
   }
 }
 @media screen and (min-width: 1150px) {
@@ -737,7 +737,7 @@ section {
   }
   .hero .hero-text {
     text-align: left;
-    padding: 75px 50px 0 20px;
+    padding: 55px 50px 20px 30px;
   }
   .hero .hero-text .section-header {
     text-align: left;
