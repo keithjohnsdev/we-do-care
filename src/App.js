@@ -275,9 +275,7 @@ function App() {
               className="language-btn-wrapper closed"
               onClick={() => setLangMenuOpen(true)}
             >
-              <button
-                className="language-btn"
-              >
+              <button className="language-btn">
                 <img
                   src={
                     language === "en"
@@ -765,7 +763,12 @@ function App() {
       <section className="footer">
         <Container>
           <div className="footer-wrapper">
-            <div className="footer-logo-wrapper">
+            <div
+              className="footer-logo-wrapper"
+              onClick={() =>
+                top.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               <img
                 className="footer-logo"
                 src={require("./theme/assets/footer-logo.png")}

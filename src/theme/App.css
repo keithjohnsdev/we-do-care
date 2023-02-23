@@ -505,6 +505,7 @@ section {
 .footer .footer-logo-wrapper {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 .footer .footer-logo-wrapper .footer-logo {
   width: 140px;

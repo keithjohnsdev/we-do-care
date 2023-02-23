@@ -575,6 +575,7 @@ section {
   .footer-logo-wrapper {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 
     & .footer-logo {
       width: 140px;
