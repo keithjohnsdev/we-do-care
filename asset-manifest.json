@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/we-do-care/static/css/main.f4410628.css",
-    "main.js": "/we-do-care/static/js/main.eb3245fe.js",
+    "main.css": "/we-do-care/static/css/main.e68e4f4e.css",
+    "main.js": "/we-do-care/static/js/main.88addc9d.js",
     "static/js/787.e177044f.chunk.js": "/we-do-care/static/js/787.e177044f.chunk.js",
     "static/media/membership-bg-img-large.png": "/we-do-care/static/media/membership-bg-img-large.3a8f89173a6d5eb8f1b5.png",
+    "static/media/phone-minimal-2.png": "/we-do-care/static/media/phone-minimal-2.bc272c9cb6c2f0991dd6.png",
     "static/media/our-locations-lg.png": "/we-do-care/static/media/our-locations-lg.649d5138cf86ccdd6014.png",
     "static/media/membership-bg-img.png": "/we-do-care/static/media/membership-bg-img.6f9fd38fe93e5e36bfce.png",
     "static/media/collage.png": "/we-do-care/static/media/collage.ed19974fccb73c964acc.png",
     "static/media/our-locations.png": "/we-do-care/static/media/our-locations.705aad52c415c712fc90.png",
-    "static/media/phone-minimal.png": "/we-do-care/static/media/phone-minimal.633f2fa87481ab31b343.png",
     "static/media/Affogato-Bold.otf": "/we-do-care/static/media/Affogato-Bold.73b419703c1a4cab668f.otf",
     "static/media/Affogato-Medium.otf": "/we-do-care/static/media/Affogato-Medium.5704a872c19ade2b9184.otf",
     "static/media/Affogato-Regular.otf": "/we-do-care/static/media/Affogato-Regular.938f16d955670350da7c.otf",
@@ -22,12 +22,12 @@
     "static/media/pharmacy.png": "/we-do-care/static/media/pharmacy.b4486be5f6d84777c81c.png",
     "static/media/labs.png": "/we-do-care/static/media/labs.c4bbd9709fbcdf64bd4f.png",
     "index.html": "/we-do-care/index.html",
-    "main.f4410628.css.map": "/we-do-care/static/css/main.f4410628.css.map",
-    "main.eb3245fe.js.map": "/we-do-care/static/js/main.eb3245fe.js.map",
+    "main.e68e4f4e.css.map": "/we-do-care/static/css/main.e68e4f4e.css.map",
+    "main.88addc9d.js.map": "/we-do-care/static/js/main.88addc9d.js.map",
     "787.e177044f.chunk.js.map": "/we-do-care/static/js/787.e177044f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4410628.css",
-    "static/js/main.eb3245fe.js"
+    "static/css/main.e68e4f4e.css",
+    "static/js/main.88addc9d.js"
   ]
 }
