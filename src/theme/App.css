@@ -91,13 +91,51 @@ section {
   opacity: 0.7;
   transition: opacity 0s ease-in-out;
 }
+.navbar .nav-right .language-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0px 15px 0;
+  position: relative;
+}
+.navbar .nav-right .language-btn-wrapper.closed .language-btn {
+  z-index: 1;
+}
+.navbar .nav-right .language-btn-wrapper.closed .language-btn.two {
+  position: absolute;
+  top: 0.5px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+  z-index: 0;
+}
+.navbar .nav-right .language-btn-wrapper.closed .language-btn.two .caret {
+  opacity: 0;
+}
+.navbar .nav-right .language-btn-wrapper.open .language-btn {
+  border-radius: 20px 20px 0 0;
+  transition: all 0.15s ease-in-out;
+  transition-delay: 0.05s;
+  z-index: 1;
+}
+.navbar .nav-right .language-btn-wrapper.open .language-btn .caret {
+  transform: rotate(180deg);
+}
+.navbar .nav-right .language-btn-wrapper.open .language-btn.two {
+  position: absolute;
+  top: 38px;
+  border-radius: 0 0 20px 20px;
+  border-top: solid 1px #d1d1d1;
+  transition: all 0.2s ease-in-out;
+  z-index: 0;
+}
+.navbar .nav-right .language-btn-wrapper.open .language-btn.two .caret {
+  opacity: 0;
+}
 .navbar .nav-right .language-btn {
   display: flex;
   align-items: center;
   background: #f7f1ff;
-  border-radius: 100px;
+  border-radius: 20px;
   padding: 11px 16px 11px 18px;
-  margin: 15px 30px 15px 0;
   outline: none;
   border: none;
   min-width: -moz-fit-content;
@@ -106,6 +144,8 @@ section {
   -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
   -moz-user-select: none;
        user-select: none; /* Standard syntax */
+  transition: all 0.15s ease-in-out;
+  transition-delay: 0.05s;
 }
 .navbar .nav-right .language-btn .flag {
   margin-right: 12px;
@@ -254,6 +294,9 @@ section {
   background-color: #7e32d4;
   color: white;
 }
+.mobile-menu.shift {
+  top: 105px;
+}
 
 .mobile-menu.hide {
   right: -260px;
@@ -344,8 +387,9 @@ section {
 .hero .phone-img-wrapper {
   display: flex;
   justify-content: center;
-  margin-left: 34px;
+  margin-left: 18px;
   margin-top: 30px;
+  padding: 0 10%;
 }
 .hero .phone-img-wrapper .phone-img {
   width: auto;
@@ -511,7 +555,7 @@ section {
     background-image: linear-gradient(180deg, #d7f0fb 45.01%, rgba(215, 240, 251, 0) 60.15%), url("./assets/membership-bg-img.png");
   }
   .hero .phone-img-wrapper {
-    margin-left: 40px;
+    margin-left: 19px;
   }
 }
 @media screen and (min-width: 500px) {
@@ -519,8 +563,7 @@ section {
     background-image: linear-gradient(180deg, #d7f0fb 40.01%, rgba(215, 240, 251, 0) 55.15%), url("./assets/membership-bg-img.png");
   }
   .hero .phone-img-wrapper {
-    margin-left: 45px;
-    padding: 0 5%;
+    margin-left: 26px;
   }
 }
 @media screen and (min-width: 600px) {
@@ -528,8 +571,7 @@ section {
     background-image: linear-gradient(180deg, #d7f0fb 35.01%, rgba(215, 240, 251, 0) 50.15%), url("./assets/membership-bg-img.png");
   }
   .hero .phone-img-wrapper {
-    margin-left: 50px;
-    padding: 0 8%;
+    margin-left: 30px;
   }
 }
 @media screen and (min-width: 700px) {
@@ -537,7 +579,7 @@ section {
     background-image: linear-gradient(180deg, #d7f0fb 30.01%, rgba(215, 240, 251, 0) 45.15%), url("./assets/membership-bg-img.png");
   }
   .hero .phone-img-wrapper {
-    margin-left: 50px;
+    margin-left: 31px;
     padding: 0 12%;
   }
   .features .features-wrapper {
@@ -550,8 +592,8 @@ section {
 }
 @media screen and (min-width: 768px) {
   .hero .phone-img-wrapper {
-    margin-left: 48px;
-    padding: 0 17%;
+    margin-left: 28px;
+    padding: 0 20%;
   }
 }
 @media screen and (min-width: 875px) {
@@ -559,8 +601,8 @@ section {
     background-image: linear-gradient(180deg, #d7f0fb 27.01%, rgba(215, 240, 251, 0) 42.15%), url("./assets/membership-bg-img.png");
   }
   .hero .phone-img-wrapper {
-    margin-left: 50px;
-    padding: 0 20%;
+    margin-left: 28px;
+    padding: 0 24%;
   }
 }
 @media screen and (min-width: 975px) {
@@ -594,6 +636,7 @@ section {
   }
   .hero .phone-img-wrapper {
     margin: 0;
+    width: 55vw;
     padding: 0 0 0 10%;
   }
   .hero .hero-text {
@@ -719,8 +762,16 @@ section {
   }
 }
 @media screen and (min-width: 1025px) {
+  .hero .phone-img-wrapper {
+    width: 50vw;
+    margin-left: 8%;
+    padding: 0 0 0 5%;
+  }
   .hero .hero-text {
     padding: 35px 50px 0 20px;
+  }
+  .navbar .nav-right .language-btn-wrapper {
+    margin-right: 10px;
   }
 }
 @media screen and (min-width: 1150px) {
@@ -732,14 +783,15 @@ section {
     flex-direction: row-reverse;
   }
   .hero .phone-img-wrapper {
-    margin: 0;
-    padding: 0 0 0 10%;
+    width: 50vw;
+    margin-left: 10%;
+    padding: 0 0 0 5%;
   }
-  .hero .hero-text {
+  .hero-text {
     text-align: left;
     padding: 55px 50px 20px 30px;
   }
-  .hero .hero-text .section-header {
+  .hero-text .section-header {
     text-align: left;
     font-weight: 900;
     font-size: 58px;
@@ -747,7 +799,7 @@ section {
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
     color: white;
   }
-  .hero .hero-text .hero-tag {
+  .hero-text .hero-tag {
     font-weight: 400;
     font-size: 26px;
     line-height: 120%;
@@ -799,25 +851,55 @@ section {
     margin: 0 60px 0;
   }
 }
+@media screen and (min-width: 1200px) {
+  .hero .phone-img-wrapper {
+    width: 45vw;
+    margin-left: 12%;
+    padding: 0 0 0 5%;
+  }
+}
 @media screen and (min-width: 1300px) {
+  .hero .phone-img-wrapper {
+    width: 42vw;
+    margin-left: 15%;
+  }
+  .hero .hero-text {
+    padding-top: 5%;
+  }
   .about .about-wrapper .collage-wrapper {
     margin-top: 1%;
   }
 }
 @media screen and (min-width: 1440px) {
+  .hero .phone-img-wrapper {
+    width: 51vw;
+    padding: 0 0 0 15%;
+    margin-left: 7%;
+  }
+  .hero .hero-text {
+    padding-top: 7%;
+  }
   .how-it-works {
     background-image: linear-gradient(90deg, #d7f0fb 55%, rgba(215, 240, 251, 0) 65.4%), url("./assets/membership-bg-img-large.png");
   }
 }
 @media screen and (min-width: 1500px) {
+  .hero .phone-img-wrapper {
+    width: 50vw;
+    padding: 0 0 0 15%;
+  }
   .hero .hero-text {
-    padding: 8% 50px 0 20px;
+    padding: 7% 50px 0 20px;
   }
   .hero .hero-text .section-header {
     margin-right: 25%;
   }
 }
 @media screen and (min-width: 1600px) {
+  .hero .phone-img-wrapper {
+    width: 42vw;
+    padding: 0 0 0 15%;
+  }
   .how-it-works {
     background-image: linear-gradient(90deg, #d7f0fb 60%, rgba(215, 240, 251, 0) 70.4%), url("./assets/membership-bg-img-large.png");
   }
@@ -825,6 +907,13 @@ section {
 @media screen and (min-width: 1800px) {
   .navbar {
     padding: 20px 15%;
+  }
+  .hero .phone-img-wrapper {
+    width: 38vw;
+    padding: 0 0 0 15%;
+  }
+  .hero .hero-wrapper {
+    margin-right: 2%;
   }
   .how-it-works {
     background-image: linear-gradient(90deg, #d7f0fb 65%, rgba(215, 240, 251, 0) 75.4%), url("./assets/membership-bg-img-large.png");
@@ -841,13 +930,21 @@ section {
   .container {
     margin: 0 15%;
   }
+  .hero .hero-wrapper {
+    margin-right: 5.5%;
+  }
   .how-it-works {
     background-image: linear-gradient(90deg, #d7f0fb 70%, rgba(215, 240, 251, 0) 80.4%), url("./assets/membership-bg-img-large.png");
   }
 }
+@media screen and (min-width: 2200px) {
+  .hero .hero-wrapper {
+    margin-right: 8%;
+  }
+}
 @media screen and (min-width: 2400px) {
   .hero .hero-wrapper {
-    margin-right: 6%;
+    margin-right: 10%;
   }
   .how-it-works {
     background-image: linear-gradient(90deg, #d7f0fb 75%, rgba(215, 240, 251, 0) 85.4%), url("./assets/membership-bg-img-large.png");

@@ -13,6 +13,7 @@ function App() {
   const about = useRef(null);
   const locations = useRef(null);
   const top = useRef(null);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   const [language, setLanguage] = useState("en");
   const languages = {
@@ -66,7 +67,7 @@ function App() {
         company: "Company",
         contact: "Contact",
         access: "Access",
-      }
+      },
     },
     sp: {
       nav1: "Beneficios",
@@ -118,9 +119,14 @@ function App() {
         company: "Compañía",
         contact: "Contacto",
         access: "Acceso",
-      }
+      },
     },
   };
+
+  function changeLanguage() {
+    language === "en" ? setLanguage("sp") : setLanguage("en");
+    setLangMenuOpen(false);
+  }
 
   useEffect(() => {
     if (mobileScreen) {
@@ -226,17 +232,84 @@ function App() {
               {language === "en" ? languages.en.nav6 : languages.sp.nav6}
             </button>
           </div>
-          <button className="language-btn" onClick={() => setLanguage("sp")}>
-            <img
-              src={require("./theme/assets/icon-usa.png")}
-              className="flag"
-              alt="nationality flag for language selection"
-            />
-            <img
-              src={require("./theme/assets/caret-down.png")}
-              alt="dropdown toggle"
-            />
-          </button>
+          {langMenuOpen ? (
+            <div className="language-btn-wrapper open">
+              <button
+                className="language-btn"
+                onClick={() => setLangMenuOpen(false)}
+              >
+                <img
+                  src={
+                    language === "en"
+                      ? require("./theme/assets/icon-usa.png")
+                      : require("./theme/assets/icon-spain.png")
+                  }
+                  className="flag"
+                  alt="nationality flag for language selection"
+                />
+                <img
+                  className="caret"
+                  src={require("./theme/assets/caret-down.png")}
+                  alt="dropdown toggle"
+                />
+              </button>
+              <button className="language-btn two" onClick={changeLanguage}>
+                <img
+                  src={
+                    language === "en"
+                      ? require("./theme/assets/icon-spain.png")
+                      : require("./theme/assets/icon-usa.png")
+                  }
+                  className="flag"
+                  alt="nationality flag for language selection"
+                />
+                <img
+                  className="caret"
+                  src={require("./theme/assets/caret-down.png")}
+                  alt="dropdown toggle"
+                />
+              </button>
+            </div>
+          ) : (
+            <div
+              className="language-btn-wrapper closed"
+              onClick={() => setLangMenuOpen(true)}
+            >
+              <button
+                className="language-btn"
+              >
+                <img
+                  src={
+                    language === "en"
+                      ? require("./theme/assets/icon-usa.png")
+                      : require("./theme/assets/icon-spain.png")
+                  }
+                  className="flag"
+                  alt="nationality flag for language selection"
+                />
+                <img
+                  src={require("./theme/assets/caret-down.png")}
+                  alt="dropdown toggle"
+                />
+              </button>
+              <button className="language-btn two" onClick={changeLanguage}>
+                <img
+                  src={
+                    language === "en"
+                      ? require("./theme/assets/icon-spain.png")
+                      : require("./theme/assets/icon-usa.png")
+                  }
+                  className="flag"
+                  alt="nationality flag for language selection"
+                />
+                <img
+                  className="caret"
+                  src={require("./theme/assets/caret-down.png")}
+                  alt="dropdown toggle"
+                />
+              </button>
+            </div>
+          )}
           <div
             className="hamburger"
             onClick={() => {
@@ -263,7 +336,13 @@ function App() {
           </div>
         </div>
         <div
-          className={showMenu ? "mobile-menu" : "mobile-menu hide"}
+          className={
+            !showMenu
+              ? "mobile-menu hide"
+              : langMenuOpen
+              ? "mobile-menu shift"
+              : "mobile-menu"
+          }
           id="menu"
         >
           <p
@@ -347,7 +426,7 @@ function App() {
             <div className="phone-img-wrapper">
               <img
                 className="phone-img"
-                src={require("./theme/assets/phone-minimal.png")}
+                src={require("./theme/assets/phone-minimal-2.png")}
                 alt="phone showing we do care app"
               />
             </div>
@@ -498,14 +577,18 @@ function App() {
       <section className="how-it-works" ref={howItWorks}>
         <Container>
           <div className="how-it-works-text">
-            <h3 className="section-title">{language === "en"
+            <h3 className="section-title">
+              {language === "en"
                 ? languages.en.howItWorks.title
-                : languages.sp.howItWorks.title}</h3>
-            <h1 className="section-header">{language === "en"
+                : languages.sp.howItWorks.title}
+            </h3>
+            <h1 className="section-header">
+              {language === "en"
                 ? languages.en.howItWorks.header
-                : languages.sp.howItWorks.header}</h1>
+                : languages.sp.howItWorks.header}
+            </h1>
             <p className="section-desc">
-            {language === "en"
+              {language === "en"
                 ? languages.en.howItWorks.tag
                 : languages.sp.howItWorks.tag}
             </p>
@@ -526,20 +609,25 @@ function App() {
         <Container>
           <div className="about-wrapper">
             <div className="about-text">
-              <h3 className="section-title">{language === "en"
-                ? languages.en.about.title
-                : languages.sp.about.title}</h3>
+              <h3 className="section-title">
+                {language === "en"
+                  ? languages.en.about.title
+                  : languages.sp.about.title}
+              </h3>
               <h1 className="section-header">
-              {language === "en"
-                ? languages.en.about.header
-                : languages.sp.about.header} <span className="purple">{language === "en"
-                ? languages.en.about.span
-                : languages.sp.about.span}</span>
+                {language === "en"
+                  ? languages.en.about.header
+                  : languages.sp.about.header}{" "}
+                <span className="purple">
+                  {language === "en"
+                    ? languages.en.about.span
+                    : languages.sp.about.span}
+                </span>
               </h1>
               <p className="section-desc">
-              {language === "en"
-                ? languages.en.about.tag
-                : languages.sp.about.tag}
+                {language === "en"
+                  ? languages.en.about.tag
+                  : languages.sp.about.tag}
               </p>
               <button
                 className="call-to-action"
@@ -548,8 +636,8 @@ function App() {
                 }
               >
                 {language === "en"
-                ? languages.en.about.button
-                : languages.sp.about.button}
+                  ? languages.en.about.button
+                  : languages.sp.about.button}
               </button>
             </div>
             <div className="collage-wrapper">
@@ -564,16 +652,19 @@ function App() {
       </section>
       <section className="our-locations" ref={locations}>
         <Container>
-          <h3 className="section-title">{language === "en"
-                ? languages.en.locations.title
-                : languages.sp.locations.title}</h3>
-          <h1 className="section-header">
-          {language === "en"
-                ? languages.en.locations.header1
-                : languages.sp.locations.header1}<br className="mobile-break" />
+          <h3 className="section-title">
             {language === "en"
-                ? languages.en.locations.header2
-                : languages.sp.locations.header2}
+              ? languages.en.locations.title
+              : languages.sp.locations.title}
+          </h3>
+          <h1 className="section-header">
+            {language === "en"
+              ? languages.en.locations.header1
+              : languages.sp.locations.header1}
+            <br className="mobile-break" />
+            {language === "en"
+              ? languages.en.locations.header2
+              : languages.sp.locations.header2}
           </h1>
         </Container>
         {mobile ? (
@@ -682,18 +773,18 @@ function App() {
               />
             </div>
             <div className="links-div">
-              <h4 className="links-title">{language === "en"
-                ? languages.en.footer.company
-                : languages.sp.footer.company}</h4>
+              <h4 className="links-title">
+                {language === "en"
+                  ? languages.en.footer.company
+                  : languages.sp.footer.company}
+              </h4>
               <p
                 className="link"
                 onClick={() =>
                   features.current?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                {language === "en"
-                ? languages.en.nav1
-                : languages.sp.nav1}
+                {language === "en" ? languages.en.nav1 : languages.sp.nav1}
               </p>
               <p
                 className="link"
@@ -701,9 +792,7 @@ function App() {
                   howItWorks.current?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                {language === "en"
-                ? languages.en.nav2
-                : languages.sp.nav2}
+                {language === "en" ? languages.en.nav2 : languages.sp.nav2}
               </p>
               <p
                 className="link"
@@ -711,9 +800,7 @@ function App() {
                   about.current?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                {language === "en"
-                ? languages.en.nav3
-                : languages.sp.nav3}
+                {language === "en" ? languages.en.nav3 : languages.sp.nav3}
               </p>
               <p
                 className="link"
@@ -721,17 +808,17 @@ function App() {
                   locations.current?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                {language === "en"
-                ? languages.en.nav4
-                : languages.sp.nav4}
+                {language === "en" ? languages.en.nav4 : languages.sp.nav4}
               </p>
             </div>
             {mobile ? (
               <>
                 <div className="links-div">
-                  <h4 className="links-title">{language === "en"
-                ? languages.en.footer.contact
-                : languages.sp.footer.contact}</h4>
+                  <h4 className="links-title">
+                    {language === "en"
+                      ? languages.en.footer.contact
+                      : languages.sp.footer.contact}
+                  </h4>
                   <a
                     className="link"
                     href="mailto:hello@wedocaremedical.com?subject=Hello!"
@@ -745,18 +832,18 @@ function App() {
                   </p>
                 </div>
                 <div className="links-div">
-                  <h4 className="links-title">{language === "en"
-                ? languages.en.footer.access
-                : languages.sp.footer.access}</h4>
+                  <h4 className="links-title">
+                    {language === "en"
+                      ? languages.en.footer.access
+                      : languages.sp.footer.access}
+                  </h4>
                   <a
                     href="https://members.wedocaremedical.com/"
                     target="_blank"
                     className="link"
                     rel="noreferrer"
                   >
-                    {language === "en"
-                ? languages.en.nav5
-                : languages.sp.nav5}
+                    {language === "en" ? languages.en.nav5 : languages.sp.nav5}
                   </a>
                   <p>
                     <a
@@ -766,8 +853,8 @@ function App() {
                       className="link"
                     >
                       {language === "en"
-                ? languages.en.nav6
-                : languages.sp.nav6}
+                        ? languages.en.nav6
+                        : languages.sp.nav6}
                     </a>
                   </p>
                 </div>
@@ -775,18 +862,18 @@ function App() {
             ) : (
               <>
                 <div className="links-div">
-                  <h4 className="links-title">{language === "en"
-                ? languages.en.footer.access
-                : languages.sp.footer.access}</h4>
+                  <h4 className="links-title">
+                    {language === "en"
+                      ? languages.en.footer.access
+                      : languages.sp.footer.access}
+                  </h4>
                   <a
                     href="https://members.wedocaremedical.com/"
                     target="_blank"
                     rel="noreferrer"
                     className="link"
                   >
-                    {language === "en"
-                ? languages.en.nav5
-                : languages.sp.nav5}
+                    {language === "en" ? languages.en.nav5 : languages.sp.nav5}
                   </a>
                   <p>
                     <a
@@ -796,15 +883,17 @@ function App() {
                       className="link"
                     >
                       {language === "en"
-                ? languages.en.nav6
-                : languages.sp.nav6}
+                        ? languages.en.nav6
+                        : languages.sp.nav6}
                     </a>
                   </p>
                 </div>
                 <div className="links-div">
-                  <h4 className="links-title">{language === "en"
-                ? languages.en.footer.contact
-                : languages.sp.footer.contact}</h4>
+                  <h4 className="links-title">
+                    {language === "en"
+                      ? languages.en.footer.contact
+                      : languages.sp.footer.contact}
+                  </h4>
                   <a
                     className="link"
                     href="mailto:hello@wedocaremedical.com?subject=Hello!"

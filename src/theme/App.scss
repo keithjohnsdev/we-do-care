@@ -98,13 +98,59 @@ section {
       }
     }
 
+    & .language-btn-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 15px 0px 15px 0;
+      position: relative;
+
+      &.closed {
+        .language-btn {
+          z-index: 1;
+        }
+        .language-btn.two {
+          position: absolute;
+          top: 0.5px;
+          border-radius: 20px;
+          transition: all 0.2s ease-in-out;
+          z-index: 0;
+          .caret {
+            opacity: 0;
+          }
+        }
+      }
+
+      &.open {
+        .language-btn {
+          border-radius: 20px 20px 0 0;
+          transition: all 0.15s ease-in-out;
+          transition-delay: 0.05s;
+          z-index: 1;
+
+          .caret {
+            transform: rotate(180deg);
+          }
+        }
+        .language-btn.two {
+          position: absolute;
+          top: 38px;
+          border-radius: 0 0 20px 20px;
+          border-top: solid 1px #d1d1d1;
+          transition: all 0.2s ease-in-out;
+          z-index: 0;
+          .caret {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
     & .language-btn {
       display: flex;
       align-items: center;
       background: #f7f1ff;
-      border-radius: 100px;
+      border-radius: 20px;
       padding: 11px 16px 11px 18px;
-      margin: 15px 30px 15px 0;
       outline: none;
       border: none;
       min-width: fit-content;
@@ -112,6 +158,8 @@ section {
       -webkit-user-select: none; /* Safari */
       -ms-user-select: none; /* IE 10 and IE 11 */
       user-select: none; /* Standard syntax */
+      transition: all 0.15s ease-in-out;
+      transition-delay: 0.05s;
 
       & .flag {
         margin-right: 12px;
@@ -287,6 +335,10 @@ section {
       }
     }
   }
+
+  &.shift {
+    top: 105px;
+  }
 }
 
 .mobile-menu.hide {
@@ -381,8 +433,9 @@ section {
   .phone-img-wrapper {
     display: flex;
     justify-content: center;
-    margin-left: 34px;
+    margin-left: 18px;
     margin-top: 30px;
+    padding: 0 10%;
     & .phone-img {
       width: auto;
     }
@@ -584,7 +637,7 @@ section {
   }
 
   .hero .phone-img-wrapper {
-    margin-left: 40px;
+    margin-left: 19px;
   }
 }
 
@@ -599,8 +652,7 @@ section {
   }
 
   .hero .phone-img-wrapper {
-    margin-left: 45px;
-    padding: 0 5%;
+    margin-left: 26px;
   }
 }
 
@@ -615,8 +667,7 @@ section {
   }
 
   .hero .phone-img-wrapper {
-    margin-left: 50px;
-    padding: 0 8%;
+    margin-left: 30px;
   }
 }
 
@@ -631,7 +682,7 @@ section {
   }
 
   .hero .phone-img-wrapper {
-    margin-left: 50px;
+    margin-left: 31px;
     padding: 0 12%;
   }
 
@@ -646,8 +697,8 @@ section {
 
 @media screen and (min-width: 768px) {
   .hero .phone-img-wrapper {
-    margin-left: 48px;
-    padding: 0 17%;
+    margin-left: 28px;
+    padding: 0 20%;
   }
 }
 
@@ -661,8 +712,8 @@ section {
       url("./assets/membership-bg-img.png");
   }
   .hero .phone-img-wrapper {
-    margin-left: 50px;
-    padding: 0 20%;
+    margin-left: 28px;
+    padding: 0 24%;
   }
 }
 
@@ -700,6 +751,7 @@ section {
     }
     .phone-img-wrapper {
       margin: 0;
+      width: 55vw;
       padding: 0 0 0 10%;
     }
     .hero-text {
@@ -858,8 +910,19 @@ section {
 }
 
 @media screen and (min-width: 1025px) {
-  .hero .hero-text {
-    padding: 35px 50px 0 20px;
+  .hero {
+    .phone-img-wrapper {
+      width: 50vw;
+      margin-left: 8%;
+      padding: 0 0 0 5%;
+    }
+    .hero-text {
+      padding: 35px 50px 0 20px;
+    }
+  }
+
+  .navbar .nav-right .language-btn-wrapper {
+    margin-right: 10px;
   }
 }
 
@@ -871,27 +934,28 @@ section {
       flex-direction: row-reverse;
     }
     .phone-img-wrapper {
-      margin: 0;
-      padding: 0 0 0 10%;
+      width: 50vw;
+      margin-left: 10%;
+      padding: 0 0 0 5%;
     }
-    .hero-text {
+  }
+  .hero-text {
+    text-align: left;
+    padding: 55px 50px 20px 30px;
+
+    & .section-header {
       text-align: left;
-      padding: 55px 50px 20px 30px;
+      font-weight: 900;
+      font-size: 58px;
+      line-height: 110%;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+      color: white;
+    }
 
-      & .section-header {
-        text-align: left;
-        font-weight: 900;
-        font-size: 58px;
-        line-height: 110%;
-        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-        color: white;
-      }
-
-      & .hero-tag {
-        font-weight: 400;
-        font-size: 26px;
-        line-height: 120%;
-      }
+    & .hero-tag {
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 120%;
     }
   }
 
@@ -958,7 +1022,25 @@ section {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .hero {
+    .phone-img-wrapper {
+      width: 45vw;
+      margin-left: 12%;
+      padding: 0 0 0 5%;
+    }
+  }
+}
 @media screen and (min-width: 1300px) {
+  .hero {
+    .phone-img-wrapper {
+      width: 42vw;
+      margin-left: 15%;
+    }
+    .hero-text {
+      padding-top: 5%;
+    }
+  }
   .about {
     .about-wrapper {
       .collage-wrapper {
@@ -969,6 +1051,17 @@ section {
 }
 
 @media screen and (min-width: 1440px) {
+  .hero {
+    .phone-img-wrapper {
+      width: 51vw;
+      padding: 0 0 0 15%;
+      margin-left: 7%;
+    }
+    .hero-text {
+      padding-top: 7%;
+    }
+  }
+
   .how-it-works {
     background-image: linear-gradient(
         90deg,
@@ -980,15 +1073,27 @@ section {
 }
 
 @media screen and (min-width: 1500px) {
-  .hero .hero-text {
-    padding: 8% 50px 0 20px;
-    .section-header {
-      margin-right: 25%;
+  .hero {
+    .phone-img-wrapper {
+      width: 50vw;
+      padding: 0 0 0 15%;
+    }
+    .hero-text {
+      padding: 7% 50px 0 20px;
+      .section-header {
+        margin-right: 25%;
+      }
     }
   }
 }
 
 @media screen and (min-width: 1600px) {
+  .hero {
+    .phone-img-wrapper {
+      width: 42vw;
+      padding: 0 0 0 15%;
+    }
+  }
   .how-it-works {
     background-image: linear-gradient(
         90deg,
@@ -1002,6 +1107,16 @@ section {
 @media screen and (min-width: 1800px) {
   .navbar {
     padding: 20px 15%;
+  }
+
+  .hero {
+    .phone-img-wrapper {
+      width: 38vw;
+      padding: 0 0 0 15%;
+    }
+    .hero-wrapper {
+      margin-right: 2%;
+    }
   }
 
   .how-it-works {
@@ -1020,12 +1135,16 @@ section {
   .about .about-wrapper .about-text {
     padding-left: 100px;
     margin-top: 5%;
-}
+  }
 }
 
 @media screen and (min-width: 2000px) {
   .container {
     margin: 0 15%;
+  }
+
+  .hero .hero-wrapper {
+    margin-right: 5.5%;
   }
 
   .how-it-works {
@@ -1038,10 +1157,15 @@ section {
   }
 }
 
+@media screen and (min-width: 2200px) {
+  .hero .hero-wrapper {
+    margin-right: 8%;
+  }}
+
 @media screen and (min-width: 2400px) {
   .hero .hero-wrapper {
-    margin-right: 6%;
-}
+    margin-right: 10%;
+  }
 
   .how-it-works {
     background-image: linear-gradient(
